@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146891078501",
+    "project_id": "pocketstats-5bb71",
+    "storage_bucket": "pocketstats-5bb71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146891078501:android:7401b13dd88b987c79bf8c",
+        "android_client_info": {
+          "package_name": "com.shane.pocketstats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146891078501-v44loemssavk7u378vtj0h6j6g88mk03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNTT8q--O3R95nF3md6dw9iqbnYAWAqWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146891078501-v44loemssavk7u378vtj0h6j6g88mk03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
