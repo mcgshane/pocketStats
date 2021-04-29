@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
         android:layout_marginTop="16dp"
-        android:text="1"
+        android:text="Sarah"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="152dp"
         android:text="3 PT"
         app:layout_constraintStart_toEndOf="@+id/btn_Player1"
         app:layout_constraintTop_toTopOf="parent" />
@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="152dp"
         android:text="3 PT"
         app:layout_constraintStart_toEndOf="@+id/btn_3_pt_scored"
         app:layout_constraintTop_toTopOf="parent" />
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="152dp"
         android:text="OR"
         app:layout_constraintStart_toEndOf="@+id/btn_3_pt_missed"
         app:layout_constraintTop_toTopOf="parent" />
@@ -118,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="152dp"
         android:text="DR"
         app:layout_constraintStart_toEndOf="@+id/btn_off_rebound"
         app:layout_constraintTop_toTopOf="parent" />
@@ -163,7 +163,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
-        android:text="OB"
+        android:text="BL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_ft_missed"
         app:layout_constraintTop_toBottomOf="@+id/btn_turnover"
@@ -180,13 +180,13 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_def_rebound" />
 
     <Button
-        android:id="@+id/btn_def_block"
+        android:id="@+id/btn_assist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
-        android:text="DB"
+        android:text="AST"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_block"
         app:layout_constraintTop_toBottomOf="@+id/btn_steal"
@@ -196,46 +196,54 @@
         android:id="@+id/button18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="37dp"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button19"
-        app:layout_constraintTop_toBottomOf="@+id/btn_block" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button19" />
 
     <Button
         android:id="@+id/button19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="37dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_def_block" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
         android:layout_marginBottom="24dp"
-        android:text="Button"
+        android:text="Subs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button19"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button20"
+        app:layout_constraintVertical_bias="0.019" />
 
     <Button
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="37dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button21"
-        app:layout_constraintTop_toBottomOf="@+id/button18"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button18" />
+
+    <TextView
+        android:id="@+id/tvDisplay"
+        android:layout_width="352dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="28dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toEndOf="@+id/btn_Player1"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
