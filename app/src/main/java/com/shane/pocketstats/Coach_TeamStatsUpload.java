@@ -4,18 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Coach_TeamStats extends AppCompatActivity {
+public class Coach_TeamStatsUpload extends AppCompatActivity {
 
     Stats_DB statsDB;
     private FileChooserFragment fragment;
@@ -23,7 +20,7 @@ public class Coach_TeamStats extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coach_team_stats);
+        setContentView(R.layout.activity_coach_team_stats_upload);
         statsDB = Stats_DB.getDbInstance(getApplicationContext());
 
         Button btnUpload = (Button) findViewById(R.id.btnupload);

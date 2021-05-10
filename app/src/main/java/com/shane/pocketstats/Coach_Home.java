@@ -19,6 +19,7 @@ public class Coach_Home extends AppCompatActivity {
         Button btn_Plays = findViewById(R.id.btn_PlayerTraining);
         Button btn_Fixtures = findViewById(R.id.btn_PlayerFixtures);
         Button btn_Chat = findViewById(R.id.btn_PlayerChat);
+        Button btn_Upload_Stats = findViewById(R.id.btn_Upload_Stats);
 
         btn_NewGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -31,7 +32,7 @@ public class Coach_Home extends AppCompatActivity {
         btn_TeamStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Coach_Home.this, Coach_TeamStats.class);
+                Intent intent = new Intent(Coach_Home.this, Coach_All_Team_Stats.class);
                 startActivity(intent);
             }
         });
@@ -56,6 +57,14 @@ public class Coach_Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Coach_Home.this, Coach_TeamChat.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_Upload_Stats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Coach_Home.this, Coach_TeamStatsUpload.class);
                 startActivity(intent);
             }
         });

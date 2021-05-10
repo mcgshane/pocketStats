@@ -19,9 +19,6 @@ public interface Stats_DAO {
     @Insert
     void insert(DB_Entity_Stats stat);
 
-//    @Insert
-//    void insertAll(List<BabyName> babyNames);
-
     @Delete
     void Delete(DB_Entity_Stats stat);
 

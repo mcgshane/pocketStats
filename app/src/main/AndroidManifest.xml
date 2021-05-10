@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shane.pocketstats">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -11,14 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PocketStats">
-        <activity android:name=".Coach_ViewFixtures"></activity>
+        <activity android:name=".IndivStats.LaurenG_Indiv_Stats"></activity>
+        <activity android:name=".IndivStats.KatieG_Indiv_Stats" />
+        <activity android:name=".IndivStats.NiamhK_Indiv_Stats" />
+        <activity android:name=".IndivStats.KateM_Indiv_Stats" />
+        <activity android:name=".IndivStats.CarolynB_Indiv_Stats" />
+        <activity android:name=".IndivStats.EdelT_Indiv_Stats" />
+        <activity android:name=".IndivStats.SarahM_Indiv_Stats" />
+        <activity android:name=".Coach_ViewFixtures" />
         <activity android:name=".Player_Training" />
         <activity android:name=".Player_TeamChat" />
         <activity android:name=".Player_Fixtures" />
         <activity android:name=".Player_MyStats" />
         <activity android:name=".Player_Home" />
         <activity android:name=".Coach_TeamChat" />
-        <activity android:name=".Coach_TeamStats" />
+        <activity android:name=".Coach_TeamStatsUpload" />
         <activity android:name=".Coach_Fixtures" />
         <activity android:name=".Coach_Training" />
         <activity
