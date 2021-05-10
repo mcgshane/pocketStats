@@ -1,7 +1,9 @@
 package com.shane.pocketstats;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,9 +31,15 @@ public class Coach_NewGame extends AppCompatActivity {
     private Button btn_turnover;
     private Button btn_steal;
     private Button btn_block;
+    private Button btn_Subs;
+    private Button btn_Save;
+
     //private Button btn_def_block;
     List<DB_Entity_Stats> playersStats = new ArrayList<>();
-    private String[] squad = {"Sarah", "edel", "mary", "Aoife", "Nicole", "Vicky", "olive"};
+    private String[] squad = {"SarahM", "EdelT", "CarolynB", "KateM", "NiamhK", "KatieG", "LaurenG"};
+    private Boolean [] startingPlayer = new Boolean[]{
+            false, false, false,false, false, false,false
+    };
     private static String player_Selected = null;
 
     SharedPreferences sharedPrefs;
@@ -44,9 +52,12 @@ public class Coach_NewGame extends AppCompatActivity {
         //getting settings values from preference screen
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         for (String player : squad) {
-            DB_Entity_Stats stat = new DB_Entity_Stats("fix2", player, 0, 0, 0);
+            DB_Entity_Stats stat = new DB_Entity_Stats("Fix1", player, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0);
             playersStats.add(stat);
         }
+
+        //find player button
 
         setContentView(R.layout.activity_coach_new_game);
 
@@ -66,8 +77,18 @@ public class Coach_NewGame extends AppCompatActivity {
         Button btn_turnover = findViewById(R.id.btn_turnover);
         Button btn_steal = findViewById(R.id.btn_steal);
         Button btn_block = findViewById(R.id.btn_block);
-        //Button btn_def_block = findViewById(R.id.btn_def_block);
+        Button btn_Subs = findViewById(R.id.btn_Subs);
+        Button btn_Save = findViewById(R.id.btn_Save);
         TextView tvDisplay = findViewById(R.id.tvDisplay);
+        String et_FixtureName = " ";
+
+// loop through squad -
+// i=1
+// find flag of who on court
+        //if on court set butt+i.settext (butt1)=player.name
+
+// refactor to setplayerbuttons()
+
 
         btn_Player1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,13 +109,13 @@ public class Coach_NewGame extends AppCompatActivity {
                     tvDisplay.setText(player_Selected + " has scored 3 points ");
 
                     for (DB_Entity_Stats player : playersStats) {
-                        if (player.getName().equals(player_Selected) ) {
+                        if (player.getName().equals(player_Selected)) {
                             int Fgmade = player.getFgmade();
-                            int ThreePtMade = player.getThreePtMade();
-                            ThreePtMade ++;
-                            Fgmade ++;
+                            int ThreePtMade = player.getThreeptmade();
+                            ThreePtMade++;
+                            Fgmade++;
                             player.setFgmade(Fgmade);
-                            player.setThreePtMade(ThreePtMade);
+                            player.setThreeptmade(ThreePtMade);
 
                         }
                     }
@@ -336,7 +357,87 @@ public class Coach_NewGame extends AppCompatActivity {
                 }
             }
         });*/
+        btn_Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Game = et_FixtureName;
+                for (DB_Entity_Stats player : playersStats) {
+                    String name = player.getName();
+                    int ThreePtMade = player.getThreeptmade();
+                    int ThreePtMissed = player.getThreeptattempted();
+                    int TwoPtMade = player.getTwoptmade();
+                    int TwoPtMissed = player.getTwoptattempted();
+                    int FtMade = player.getFtmade();
+                    int FtMissed = player.getFgattempted();
+                    int fgMade = ThreePtMade + TwoPtMade + FtMade;
+                    int fgAttempted = ThreePtMade + ThreePtMissed + TwoPtMade + TwoPtMissed + FtMade + FtMissed;
+                    int ThreePtAttempted = ThreePtMade + ThreePtMissed;
+                    int TwoPtAttempted = TwoPtMade + TwoPtMissed;
+                    int FtAttempted = FtMade + FtMissed;
+                    int PointsScored = ThreePtMade * 3 + TwoPtMade * 2 + FtMade * 1;
+                    int Steals = player.getSteals();
+                    int Block = player.getBlocks();
+                    int Turnover = player.getTurnovers();
+                    int OffRebound = player.getOffrebound();
+                    int DefRebound = player.getDefrebound();
+                    DB_Entity_Stats stat = new DB_Entity_Stats(et_FixtureName, name, fgMade, fgAttempted, ThreePtMade, ThreePtAttempted, TwoPtMade, TwoPtAttempted,
+                            FtMade, FtAttempted, OffRebound, DefRebound, OffRebound, Turnover, Steals, Block, PointsScored);
+
+                    //   statsDB.stats_DAO().insert(stat);
+
+                }
+
+
+                btn_Subs.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showTeamSelection();
+
+                    }
+                });
+            }
+
+
+            private void showTeamSelection() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Coach_NewGame.this);
+                builder.setTitle("Select Starting 5 Players")
+                        .setMultiChoiceItems(squad, null, new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                            }
+                        })
+                        .setPositiveButton("Enter", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                int a = 0;
+                                int i = 1;
+                                while (a < startingPlayer.length) {
+                                    boolean value = startingPlayer[a];
+
+                                    if (value) {
+                                        Button button = (Button) findViewById(getResources().getIdentifier("btn_Player" + i, "id", "com.shane.pocketstats"));
+                                        button.setText(startingPlayer[a].toString());
+                                    }
+                                    i++;
+                                    a++;
+                                }
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                builder.show();
+            }
+        });
     }
 
 }
+
+
+
 

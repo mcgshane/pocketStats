@@ -41,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Name"
@@ -53,8 +53,8 @@
 
     <EditText
         android:id="@+id/et_PasswordCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="375dp"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="47dp"
         android:layout_marginEnd="16dp"
@@ -64,9 +64,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Password" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Password"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView_Login"
@@ -87,14 +88,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="88dp"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_PasswordCheck"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Btn_Login"
@@ -109,5 +109,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Btn_Register" />
+
+    <CheckBox
+        android:id="@+id/coach_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coach"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="534dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

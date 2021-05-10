@@ -7,7 +7,7 @@
     tools:context=".Coach_Home">
 
     <Button
-        android:id="@+id/btn_TeamStats"
+        android:id="@+id/btn_PlayerStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_NewGame" />
 
     <Button
-        android:id="@+id/btn_Plays"
+        android:id="@+id/btn_PlayerTraining"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -28,10 +28,10 @@
         android:text="Plays"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_TeamStats" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_PlayerStats" />
 
     <Button
-        android:id="@+id/btn_Fixtures"
+        android:id="@+id/btn_PlayerFixtures"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -40,14 +40,14 @@
         android:text="Fixtures"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Plays" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_PlayerTraining" />
 
     <Button
-        android:id="@+id/btn_Chat"
+        android:id="@+id/btn_PlayerChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="136dp"
         android:text="Chat"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Fixtures"
+        app:layout_constraintTop_toBottomOf="@+id/btn_PlayerFixtures"
         app:layout_constraintVertical_bias="0.204" />
 
     <Button
@@ -63,12 +63,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:text="New Game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="279dp"
+        android:layout_height="228dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="66dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/basketball_splash" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,16 +14,8 @@ public class DB_Entity_Stats {
     @ColumnInfo(name = "name")
     private String name;
 
-/*
-    @ColumnInfo(name = "first_name")
-    private String firstName;
-
-    @ColumnInfo(name = "last_name")
-    private String lastName;
-*/
-
-    @ColumnInfo(name = "minspLayed")
-    private int minspLayed;
+//    @ColumnInfo(name = "minspLayed")
+//    private int minspLayed;
 
     @ColumnInfo(name = "fgmade")
     private int fgmade;
@@ -31,62 +23,68 @@ public class DB_Entity_Stats {
     @ColumnInfo(name = "fgattempted")
     private int fgattempted;
 
-    @ColumnInfo(name = "ThreePtMade")
-    private int ThreePtMade;
+    @ColumnInfo(name = "threeptmade")
+    private int threeptmade;
 
-    @ColumnInfo(name = "ThreePtMissed")
-    private int ThreePtMissed;
+    @ColumnInfo(name = "threeptattempted")
+    private int threeptattempted;
 
-    //@ColumnInfo(name = "FgMissed")
-    //private int FgMissed;
+    @ColumnInfo(name = "twoptmade")
+    private int twoptmade;
 
-    //@ColumnInfo(name = "TwoPtMade")
-    //private int TwoPtMade;
+    @ColumnInfo(name = "twoptattempted")
+    private int twoptattempted;
 
-    //@ColumnInfo(name = "TwoPtMissed")
-    //private int TwoPtMissed;
+    @ColumnInfo(name = "ftmade")
+    private int ftmade;
 
-    //@ColumnInfo(name = "FtMade")
-    //private int FtMade;
+    @ColumnInfo(name = "ftattempted")
+    private int ftattempted;
 
-    //@ColumnInfo(name = "FtMissed")
-    //private int FtMissed;
+    @ColumnInfo(name = "offrebound")
+    private int offrebound;
 
-    //@ColumnInfo(name = "OffRebound")
-    //private int OffRebound;
+    @ColumnInfo(name = "defrebound")
+    private int defrebound;
 
-    //@ColumnInfo(name = "DefRebound")
-    //private int DefRebound;
+    @ColumnInfo(name = "totrebound")
+    private int totrebound;
 
-    //@ColumnInfo(name = "Assist")
-    //private int Assist;
+    @ColumnInfo(name = "turnovers")
+    private int turnovers;
 
-    //@ColumnInfo(name = "Steal")
-    //private int Steal;
+    @ColumnInfo(name = "steals")
+    private int steals;
 
-    //@ColumnInfo(name = "Turnover")
-    //private int Turnover;
+    @ColumnInfo(name = "blocks")
+    private int blocks;
 
-    //@ColumnInfo(name = "Block")
-    //private int Block;
+    @ColumnInfo(name = "points")
+    private int points;
 
-// add 3 pt columns
-    public DB_Entity_Stats(String game, String name, int minspLayed, int fgmade, int fgattempted) {
+
+
+    public DB_Entity_Stats(String game, String name, int fgmade, int fgattempted, int  threeptmade , int  threeptattempted,
+                           int twoptmade, int twoptattempted, int ftmade, int ftattempted, int offrebound, int defrebound,
+                           int totrebound, int turnovers, int steals, int blocks, int points ) {
         this.id = id;
         this.game = game;
         this.name = name;
-        this.minspLayed = minspLayed;
         this.fgmade = fgmade;
         this.fgattempted = fgattempted;
-    }
-
-    public DB_Entity_Stats(String game, String name, int ThreePtMade, int ThreePtMissed ) {
-        this.id = id;
-        this.game = game;
-        this.name = name;
-        this.ThreePtMade = ThreePtMade;
-        this.ThreePtMissed = ThreePtMissed;
-        //this.FgMissed = FgMissed;
+        this.threeptmade = threeptmade;
+        this.threeptattempted = threeptattempted;
+        this.twoptmade = twoptmade;
+        this.twoptattempted = twoptattempted;
+        this.ftmade = ftmade;
+        this.ftattempted = ftattempted;
+        this.offrebound = offrebound;
+        this.defrebound = defrebound;
+        this.totrebound = totrebound;
+        this.turnovers = turnovers;
+        this.steals = steals;
+        this.blocks = blocks;
+        this.points = points;
     }
 
     public int getId() {
@@ -113,14 +111,6 @@ public class DB_Entity_Stats {
         this.name = name;
     }
 
-    public int getMinspLayed() {
-        return minspLayed;
-    }
-
-    public void setMinspLayed(int minspLayed) {
-        this.minspLayed = minspLayed;
-    }
-
     public int getFgmade() {
         return fgmade;
     }
@@ -137,27 +127,107 @@ public class DB_Entity_Stats {
         this.fgattempted = fgattempted;
     }
 
-    public int getThreePtMade() {
-        return ThreePtMade;
+    public int getThreeptmade() {
+        return threeptmade;
     }
 
-    public void setThreePtMade(int threePtMade) {
-        ThreePtMade = threePtMade;
+    public void setThreeptmade(int threeptmade) {
+        this.threeptmade = threeptmade;
     }
 
-    public int getThreePtMissed() {
-        return ThreePtMissed;
+    public int getThreeptattempted() {
+        return threeptattempted;
     }
 
-    public void setThreePtMissed(int threePtMissed) {
-        ThreePtMissed = threePtMissed;
+    public void setThreeptattempted(int threeptattempted) {
+        this.threeptattempted = threeptattempted;
     }
 
-    //public int getFgMissed() {
-        //return FgMissed;
-    //}
+    public int getTwoptmade() {
+        return twoptmade;
+    }
 
-    //public void setFgMissed(int fgMissed) {
-       // FgMissed = fgMissed;
-    //}
+    public void setTwoptmade(int twoptmade) {
+        this.twoptmade = twoptmade;
+    }
+
+    public int getTwoptattempted() {
+        return twoptattempted;
+    }
+
+    public void setTwoptattempted(int twoptattempted) {
+        this.twoptattempted = twoptattempted;
+    }
+
+    public int getFtmade() {
+        return ftmade;
+    }
+
+    public void setFtmade(int ftmade) {
+        this.ftmade = ftmade;
+    }
+
+    public int getFtattempted() {
+        return ftattempted;
+    }
+
+    public void setFtattempted(int ftattempted) {
+        this.ftattempted = ftattempted;
+    }
+
+    public int getOffrebound() {
+        return offrebound;
+    }
+
+    public void setOffrebound(int offrebound) {
+        this.offrebound = offrebound;
+    }
+
+    public int getDefrebound() {
+        return defrebound;
+    }
+
+    public void setDefrebound(int defrebound) {
+        this.defrebound = defrebound;
+    }
+
+    public int getTotrebound() {
+        return totrebound;
+    }
+
+    public void setTotrebound(int totrebound) {
+        this.totrebound = totrebound;
+    }
+
+    public int getTurnovers() {
+        return turnovers;
+    }
+
+    public void setTurnovers(int turnovers) {
+        this.turnovers = turnovers;
+    }
+
+    public int getSteals() {
+        return steals;
+    }
+
+    public void setSteals(int steals) {
+        this.steals = steals;
+    }
+
+    public int getBlocks() {
+        return blocks;
+    }
+
+    public void setBlocks(int blocks) {
+        this.blocks = blocks;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
 }
