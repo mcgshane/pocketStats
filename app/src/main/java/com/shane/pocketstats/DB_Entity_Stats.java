@@ -53,6 +53,9 @@ public class DB_Entity_Stats {
     @ColumnInfo(name = "turnovers")
     private int turnovers;
 
+    @ColumnInfo(name = "assist")
+    private int assist;
+
     @ColumnInfo(name = "steals")
     private int steals;
 
@@ -66,7 +69,7 @@ public class DB_Entity_Stats {
 
     public DB_Entity_Stats(String game, String name, int fgmade, int fgattempted, int  threeptmade , int  threeptattempted,
                            int twoptmade, int twoptattempted, int ftmade, int ftattempted, int offrebound, int defrebound,
-                           int totrebound, int turnovers, int steals, int blocks, int points ) {
+                           int totrebound, int assist, int turnovers, int steals, int blocks, int points ) {
         this.id = id;
         this.game = game;
         this.name = name;
@@ -81,6 +84,7 @@ public class DB_Entity_Stats {
         this.offrebound = offrebound;
         this.defrebound = defrebound;
         this.totrebound = totrebound;
+        this.assist = assist;
         this.turnovers = turnovers;
         this.steals = steals;
         this.blocks = blocks;
@@ -197,6 +201,14 @@ public class DB_Entity_Stats {
 
     public void setTotrebound(int totrebound) {
         this.totrebound = totrebound;
+    }
+
+    public int getAssist() {
+        return assist;
+    }
+
+    public void setAssist(int assist) {
+        this.assist = assist;
     }
 
     public int getTurnovers() {

@@ -1,6 +1,7 @@
 package com.shane.pocketstats;
 
 import androidx.room.*;
+
 import java.util.List;
 
 
@@ -12,6 +13,9 @@ public interface Stats_DAO {
 
     @Query("SELECT * FROM stats")
     List<DB_Entity_Stats> getLast();
+
+    @Query("SELECT * FROM stats WHERE name = :playerName")
+    List<DB_Entity_Stats> getPlayer(String playerName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<DB_Entity_Stats> stats);

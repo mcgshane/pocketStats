@@ -4,11 +4,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,6 +35,9 @@ public class Coach_NewGame extends AppCompatActivity {
     private Button btn_block;
     private Button btn_Subs;
     private Button btn_Save;
+    private EditText et_FixtureName;
+
+    Stats_DB statsDB;
 
     //private Button btn_def_block;
     List<DB_Entity_Stats> playersStats = new ArrayList<>();
@@ -52,7 +57,7 @@ public class Coach_NewGame extends AppCompatActivity {
         //getting settings values from preference screen
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         for (String player : squad) {
-            DB_Entity_Stats stat = new DB_Entity_Stats("Fix1", player, 0, 0, 0, 0, 0, 0,
+            DB_Entity_Stats stat = new DB_Entity_Stats("", player, 0, 0, 0,0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0);
             playersStats.add(stat);
         }
@@ -79,16 +84,9 @@ public class Coach_NewGame extends AppCompatActivity {
         Button btn_block = findViewById(R.id.btn_block);
         Button btn_Subs = findViewById(R.id.btn_Subs);
         Button btn_Save = findViewById(R.id.btn_Save);
+        Button btn_assist = findViewById(R.id.btn_assist);
         TextView tvDisplay = findViewById(R.id.tvDisplay);
-        String et_FixtureName = " ";
-
-// loop through squad -
-// i=1
-// find flag of who on court
-        //if on court set butt+i.settext (butt1)=player.name
-
-// refactor to setplayerbuttons()
-
+        EditText et_FixtureName = findViewById(R.id.et_FixtureName);
 
         btn_Player1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,12 +99,56 @@ public class Coach_NewGame extends AppCompatActivity {
             }
         });
 
+        btn_Player2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                player_Selected = btn_Player2.getText().toString();
+
+
+            }
+        });
+
+        btn_Player3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                player_Selected = btn_Player3.getText().toString();
+
+
+            }
+        });
+
+        btn_Player4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                player_Selected = btn_Player4.getText().toString();
+
+
+            }
+        });
+
+        btn_Player5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                player_Selected = btn_Player5.getText().toString();
+
+
+            }
+        });
+
         btn_3_pt_scored.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has scored 3 points ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has scored 3 points ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected)) {
@@ -124,126 +166,126 @@ public class Coach_NewGame extends AppCompatActivity {
             }
         });
 
-        /*btn_3_pt_missed.setOnClickListener(new View.OnClickListener() {
+        btn_3_pt_missed.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has missed 3 points ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has missed 3 points ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int FgMissed = player.getFgMissed();
-                            int ThreePtMissed = player.getThreePtMissed();
-                            ThreePtMissed ++;
-                            FgMissed ++;
-                            player.setFgMissed(FgMissed);
-                            player.setThreePtMissed(ThreePtMissed);
+                            int FgAttempted = player.getFgattempted();
+                            int ThreePtAttempted = player.getThreeptattempted();
+                            ThreePtAttempted ++;
+                            FgAttempted ++;
+                            player.setFgattempted(FgAttempted);
+                            player.setThreeptattempted(ThreePtAttempted);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-        /*btn_2_pt_scored.setOnClickListener(new View.OnClickListener() {
-            //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
+        btn_2_pt_scored.setOnClickListener(new View.OnClickListener() {
+            //loop through array get name for each recorded see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has scored 2 points ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has scored 2 points ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
                             int Fgmade = player.getFgmade();
-                            int TwoPtMade = player.getTwoPtMade();
-                            TwoPtMade ++;
-                            FgScored ++;
+                            int twoptmade = player.getTwoptmade();
+                            twoptmade ++;
+                            Fgmade ++;
                             player.setFgmade(Fgmade);
-                            player.setTwoPtMade(TwoPtMade);
+                            player.setTwoptmade(twoptmade);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-        /*btn_2_pt_missed.setOnClickListener(new View.OnClickListener() {
+        btn_2_pt_missed.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has missed 2 points ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has missed 2 points ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int FgMissed = player.getFgMissed();
-                            int TwoPtMissed = player.getTwoPtMissed();
-                            TwoPtMissed ++;
-                            FgMissed ++;
-                            player.setFgMissed(FgMissed);
-                            player.setTwoPtMissed(TwoPtMissed);
+                            int FgAttempted = player.getFgattempted();
+                            int TwoPtAttempted = player.getTwoptattempted();
+                            TwoPtAttempted ++;
+                            FgAttempted ++;
+                            player.setFgattempted(FgAttempted);
+                            player.setTwoptattempted(TwoPtAttempted);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-        /*btn_ft_scored.setOnClickListener(new View.OnClickListener() {
+        btn_ft_scored.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has scored a Free throw ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has scored a Free throw ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
                             int Fgmade = player.getFgmade();
-                            int FtMade = player.getFtMade();
+                            int FtMade = player.getFtmade();
                             FtMade ++;
                             Fgmade ++;
                             player.setFgmade(Fgmade);
-                            player.setFtMade(FtMade);
+                            player.setFtmade(FtMade);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-                /*btn_ft_missed.setOnClickListener(new View.OnClickListener() {
+                btn_ft_missed.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has missed a Free throw ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has missed a Free throw ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int FgMissed = player.getFgMissed();
-                            int FtMissed = player.getFtMissed();
-                            FtMissed ++;
-                            FgMissed ++;
-                            player.setFgMissed(FgMissed);
-                            player.setFtMissed(FtMissed);
+                            int FgAttempted = player.getFgattempted();
+                            int FtAttempted = player.getFtattempted();
+                            FtAttempted ++;
+                            FgAttempted ++;
+                            player.setFgattempted(FgAttempted);
+                            player.setFtattempted(FtAttempted);
 
                         }
                     }
 
                 }
             }
-        });*/
-                /*btn_assist.setOnClickListener(new View.OnClickListener() {
+        });
+                btn_assist.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has earned a assist ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has earned a assist ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
@@ -256,145 +298,152 @@ public class Coach_NewGame extends AppCompatActivity {
 
                 }
             }
-        });*/
+        });
 
-                /*btn_off_rebound.setOnClickListener(new View.OnClickListener() {
+                btn_off_rebound.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has got a offensive rebound ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has got a offensive rebound ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int OffRebound = player.getOffRebound();
+                            int OffRebound = player.getOffrebound();
                             OffRebound ++;
-                            player.setOffRebound(OffRebound);
+                            player.setOffrebound(OffRebound);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-         /*btn_def_rebound.setOnClickListener(new View.OnClickListener() {
+         btn_def_rebound.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has got a defensive rebound ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has got a defensive rebound ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int DefRebound = player.getDefRebound();
+                            int DefRebound = player.getDefrebound();
                             DefRebound ++;
-                            player.setDefRebound(DefRebound);
+                            player.setDefrebound(DefRebound);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-        /*btn_turnover.setOnClickListener(new View.OnClickListener() {
+        btn_turnover.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has turned over the ball ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has turned over the ball ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int Turnover = player.getTurnover();
-                            Turnover ++;
-                            player.setTurnover(TurnOver);
+                            int Turnovers = player.getTurnovers();
+                            Turnovers ++;
+                            player.setTurnovers(Turnovers);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-        /*btn_block.setOnClickListener(new View.OnClickListener() {
+        btn_block.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has blocked the shot ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has blocked the shot ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int Block = player.getBlock();
-                            Block ++;
-                            player.setBlock(Block);
+                            int Blocks = player.getBlocks();
+                            Blocks ++;
+                            player.setBlocks(Blocks);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
 
-        /*btn_steal.setOnClickListener(new View.OnClickListener() {
+        btn_steal.setOnClickListener(new View.OnClickListener() {
             //loop through array get name for each recored see does it match player seecetd if it does get the 3 point value and set it back .All 7 players
             @Override
             public void onClick(View v) {
                 if (!player_Selected.isEmpty()) {
-                    tvDisplay.setText(player_Selected + " has stolen the ball ");
+                    tvDisplay.setText(tvDisplay.getText() + "\n"+ player_Selected + " has stolen the ball ");
 
                     for (DB_Entity_Stats player : playersStats) {
                         if (player.getName().equals(player_Selected) ) {
-                            int Steal = player.getSteal();
-                            Steal ++;
-                            player.setSteal(Steal);
+                            int Steals = player.getSteals();
+                            Steals ++;
+                            player.setSteals(Steals);
 
                         }
                     }
 
                 }
             }
-        });*/
+        });
+
         btn_Save.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            EditText Game = et_FixtureName;
+                                            statsDB = Stats_DB.getDbInstance(getApplicationContext());
+                                            for (DB_Entity_Stats player : playersStats) {
+                                                String name = player.getName();
+                                                int ThreePtMade = player.getThreeptmade();
+                                                int ThreePtMissed = player.getThreeptattempted();
+                                                int TwoPtMade = player.getTwoptmade();
+                                                int TwoPtMissed = player.getTwoptattempted();
+                                                int FtMade = player.getFtmade();
+                                                int FtMissed = player.getFgattempted();
+                                                int fgMade = ThreePtMade + TwoPtMade + FtMade;
+                                                int fgAttempted = ThreePtMade + ThreePtMissed + TwoPtMade + TwoPtMissed + FtMade + FtMissed;
+                                                int ThreePtAttempted = ThreePtMade + ThreePtMissed;
+                                                int TwoPtAttempted = TwoPtMade + TwoPtMissed;
+                                                int FtAttempted = FtMade + FtMissed;
+                                                int PointsScored = ThreePtMade * 3 + TwoPtMade * 2 + FtMade * 1;
+                                                int Steals = player.getSteals();
+                                                int Block = player.getBlocks();
+                                                int Turnover = player.getTurnovers();
+                                                int Assist = player.getAssist();
+                                                int OffRebound = player.getOffrebound();
+                                                int DefRebound = player.getDefrebound();
+                                                int TotRebounds = OffRebound + DefRebound;
+                                                DB_Entity_Stats stat = new DB_Entity_Stats(et_FixtureName.getText().toString(), name, fgMade, fgAttempted, ThreePtMade, ThreePtAttempted, TwoPtMade, TwoPtAttempted,
+                                                        FtMade, FtAttempted, OffRebound, DefRebound, TotRebounds, Assist, Turnover, Steals, Block, PointsScored);
+
+                                                statsDB.stats_DAO().insert(stat);
+
+                                                Intent intent = new Intent(Coach_NewGame.this, Coach_Home.class);
+                                                startActivity(intent);
+
+                                            }
+                                        }
+        });
+
+
+        btn_Subs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Game = et_FixtureName;
-                for (DB_Entity_Stats player : playersStats) {
-                    String name = player.getName();
-                    int ThreePtMade = player.getThreeptmade();
-                    int ThreePtMissed = player.getThreeptattempted();
-                    int TwoPtMade = player.getTwoptmade();
-                    int TwoPtMissed = player.getTwoptattempted();
-                    int FtMade = player.getFtmade();
-                    int FtMissed = player.getFgattempted();
-                    int fgMade = ThreePtMade + TwoPtMade + FtMade;
-                    int fgAttempted = ThreePtMade + ThreePtMissed + TwoPtMade + TwoPtMissed + FtMade + FtMissed;
-                    int ThreePtAttempted = ThreePtMade + ThreePtMissed;
-                    int TwoPtAttempted = TwoPtMade + TwoPtMissed;
-                    int FtAttempted = FtMade + FtMissed;
-                    int PointsScored = ThreePtMade * 3 + TwoPtMade * 2 + FtMade * 1;
-                    int Steals = player.getSteals();
-                    int Block = player.getBlocks();
-                    int Turnover = player.getTurnovers();
-                    int OffRebound = player.getOffrebound();
-                    int DefRebound = player.getDefrebound();
-                    DB_Entity_Stats stat = new DB_Entity_Stats(et_FixtureName, name, fgMade, fgAttempted, ThreePtMade, ThreePtAttempted, TwoPtMade, TwoPtAttempted,
-                            FtMade, FtAttempted, OffRebound, DefRebound, OffRebound, Turnover, Steals, Block, PointsScored);
+                showTeamSelection();
 
-                    //   statsDB.stats_DAO().insert(stat);
-
-                }
-
-
-                btn_Subs.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showTeamSelection();
-
-                    }
-                });
             }
 
 

@@ -7,13 +7,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.shane.pocketstats.IndivStats.CarolynB_Indiv_Stats;
-import com.shane.pocketstats.IndivStats.EdelT_Indiv_Stats;
-import com.shane.pocketstats.IndivStats.KateM_Indiv_Stats;
-import com.shane.pocketstats.IndivStats.KatieG_Indiv_Stats;
-import com.shane.pocketstats.IndivStats.LaurenG_Indiv_Stats;
-import com.shane.pocketstats.IndivStats.NiamhK_Indiv_Stats;
-import com.shane.pocketstats.IndivStats.SarahM_Indiv_Stats;
 
 public class Coach_All_Team_Stats extends AppCompatActivity implements View.OnClickListener {
 
@@ -47,37 +40,44 @@ public class Coach_All_Team_Stats extends AppCompatActivity implements View.OnCl
 
         switch (v.getId()){
             case R.id.SarahM_Card:
-                i = new Intent(this, SarahM_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "SarahM");
                 startActivity(i);
                 break;
 
             case R.id.EdelT_Card:
-                i = new Intent(this, EdelT_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "EdelT");
                 startActivity(i);
                 break;
 
             case R.id.CarolynB_Card:
-                i = new Intent(this, CarolynB_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "CarolynB");
                 startActivity(i);
                 break;
 
             case R.id.KateM_Card:
-                i = new Intent(this, KateM_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "KateM");
                 startActivity(i);
                 break;
 
             case R.id.NiamhK_Card:
-                i = new Intent(this, NiamhK_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "NiamhK");
                 startActivity(i);
                 break;
 
             case R.id.KatieG_Card:
-                i = new Intent(this, KatieG_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "KatieG");
                 startActivity(i);
                 break;
 
             case R.id.LaurenG_Card:
-                i = new Intent(this, LaurenG_Indiv_Stats.class);
+                i = new Intent(this, Player_Indiv_Stats.class);
+                i.putExtra("Player" , "LaurenG");
                 startActivity(i);
                 break;
         }

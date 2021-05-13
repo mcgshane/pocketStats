@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.shane.pocketstats.R;
+
 public class Coach_Training extends AppCompatActivity {
 
     @Override

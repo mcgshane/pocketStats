@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.shane.pocketstats.R;
+
 public class Coach_ViewFixtures extends AppCompatActivity {
 
     @Override

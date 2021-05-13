@@ -1,6 +1,7 @@
 package com.shane.pocketstats;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,19 +14,21 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import static android.text.TextUtils.isEmpty;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     //Firebase - AuthState listener checks the status
     private FirebaseAuth.AuthStateListener mAuthListener;
-
+    private FirebaseFirestore fStore;
     private EditText EmailLogin, PasswordLogin;
     private Button btn_SignIn, btn_goToRegister,btn_forgotPassword;
 
@@ -40,6 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         btn_SignIn = (Button) findViewById(R.id.btn_SignIn);
         btn_goToRegister = (Button) findViewById(R.id.btn_goToRegister);
         btn_forgotPassword = (Button) findViewById(R.id.btn_forgotPassword);
+
+        //Initialize FireStore
+        fStore = FirebaseFirestore.getInstance();
+
 
         //Listener will be listening for any changes
         startUpFirebaseAuth();
@@ -62,17 +69,13 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d(TAG, "onclick: Trying to Authenticate. ");
 
                     //checking that both the email and password fields are both not empty. Unable to proceed if they are
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(EmailLogin.getText().toString(),
-                            PasswordLogin.getText().toString())
-                            //add listener to listen for when the task has completed
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(EmailLogin.getText().toString(),PasswordLogin.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
-                                    //hideDialog();
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(LoginActivity.this, "Authentication has failed", Toast.LENGTH_SHORT).show();
@@ -84,8 +87,6 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
                 }
-                Intent intent = new Intent(LoginActivity.this, Coach_Home.class);
-                startActivity(intent);
 
             }
         });
@@ -108,6 +109,20 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+   /* private void checkUser(String uid) {
+        DocumentReference df = fStore.collection("Users").document(uid);
+
+        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Log.d("TAG", "OnSuccess: " + documentSnapshot.getData());
+
+                if(documentSnapshot.getString(""))
+            }
+        });
+    }*/
+
     //checking there is text in the string is so it returns true
     private boolean isEmpty(String string){
         return string.equals("");
@@ -126,6 +141,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     Toast.makeText(LoginActivity.this, "Authenticated with: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, Coach_Home.class);
+                    startActivity(intent);
 
                 } else {
                     // User is signed out

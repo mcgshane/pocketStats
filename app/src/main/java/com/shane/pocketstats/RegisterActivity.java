@@ -22,7 +22,7 @@ import static android.text.TextUtils.isEmpty;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText name, email, password, passwordCheck;
-    Button Btn_Register, Btn_Login, coach_checkBox;
+    Button Btn_Register, Btn_Login;
     private FirebaseAuth mAuth;
     private static final String TAG = "Register_Activity";
 
@@ -38,7 +38,6 @@ public class RegisterActivity extends AppCompatActivity {
         passwordCheck= findViewById(R.id.et_PasswordCheck);
         Btn_Register = findViewById(R.id.Btn_Register);
         Btn_Login = findViewById(R.id.Btn_Login);
-        coach_checkBox = findViewById(R.id.coach_checkBox);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
@@ -89,7 +88,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
                         // ...
                     }
                 });*/
@@ -145,5 +143,3 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 }
-
-

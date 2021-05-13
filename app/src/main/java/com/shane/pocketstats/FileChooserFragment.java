@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.shane.pocketstats.R;
+
 public class FileChooserFragment extends Fragment {
 
     private static final int MY_REQUEST_CODE_PERMISSION = 1000;

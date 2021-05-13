@@ -74,7 +74,7 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
             String strGame, strName, strMinsPLayed, strFGs, strThrees, strTwos, strFreeTs;
 //            String stroffrebound, strdefrebound, strtotrebound, strturnover, strsteal, strblock, strpts ;
             int iFGMade, iFGAttempted, ithreeptmade, ithreeptattempted, itwoptmade, itwoptattempted,iftptmade, iftptattempted;
-            int ioffrebound, idefrebound, itotrebound, iturnover, isteal, iblock, ipts ;
+            int ioffrebound, idefrebound, itotrebound, iassist, iturnover, isteal, iblock, ipts ;
             while ((line = reader.readLine()) != null) {
                 //              Log.d("MyActivity", "Line: " + line);
 
@@ -108,7 +108,9 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
                 ioffrebound = Integer.valueOf(fields[6].toString());
                 idefrebound = Integer.valueOf(fields[7].toString());
                 itotrebound = Integer.valueOf(fields[8].toString());
+                iassist = Integer.valueOf(fields[9].toString());
                 iturnover = Integer.valueOf(fields[10].toString());
+
                 isteal = Integer.valueOf(fields[11].toString());
                 iblock = Integer.valueOf(fields[12].toString());
                 ipts = Integer.valueOf(fields[14].toString());
@@ -118,7 +120,7 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
 
 
                 DB_Entity_Stats stat=new DB_Entity_Stats(strGame, strName, iFGMade, iFGAttempted, ithreeptmade, ithreeptattempted, itwoptmade, itwoptattempted,
-                        iftptmade, iftptattempted, ioffrebound, idefrebound, itotrebound, iturnover, isteal, iblock, ipts);
+                        iftptmade, iftptattempted, ioffrebound, idefrebound, itotrebound, iassist, iturnover, isteal, iblock, ipts);
 
                 statsDB.stats_DAO().insert(stat);
                 players.add(stat);
