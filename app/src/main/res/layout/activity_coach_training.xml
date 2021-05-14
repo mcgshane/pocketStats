@@ -6,4 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".Coach_Training">
 
+
+    <EditText
+        android:id="@+id/et_Type"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="72dp"
+        android:hint="Type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_Url"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:hint="Urls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="4dp"
+        android:text="Save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Type" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="357dp"
+        android:layout_height="322dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Save"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_getall"
+        android:layout_width="134dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="60dp"
+        android:text="ShowAll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Type" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,9 +3,11 @@ package com.shane.pocketstats;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -31,6 +33,12 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
 
                 List<DB_Entity_Stats> playerStats =  processImportFile();
                 statsDB.stats_DAO().insertAll(playerStats);
+
+                Toast toast = Toast.makeText(getApplicationContext(),"Upload Completed" ,Toast.LENGTH_SHORT);
+                toast.show();
+
+                Intent intent = new Intent(Coach_TeamStatsUpload.this, Coach_Home.class);
+                startActivity(intent);
 
                 //Update the screen with list of Data that was uploaded
                 // statsDB.stats_DAO().getAll();

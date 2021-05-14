@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Player_Indiv_Stats extends AppCompatActivity {
 
-    TextView Fgoals, ThreePts, TwoPts;
+    TextView Fgoals, ThreePts, TwoPts, FT, OR, DR, TO, ST, BL;
     private RecyclerView rv_Stats;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,13 @@ public class Player_Indiv_Stats extends AppCompatActivity {
         Fgoals = (TextView) findViewById(R.id.fieldGoals);
         ThreePts =(TextView) findViewById(R.id.threePts);
         TwoPts = (TextView) findViewById(R.id.twoPts);
+        FT = (TextView) findViewById(R.id.freeT);
+        OR = (TextView) findViewById(R.id.offR);
+        DR = (TextView) findViewById(R.id.defR);
+        TO = (TextView) findViewById(R.id.turnO);
+        ST = (TextView) findViewById(R.id.steal);
+        BL = (TextView) findViewById(R.id.block);
+
 
 
         Stats_DB statsDB = Stats_DB.getDbInstance(this.getApplicationContext());

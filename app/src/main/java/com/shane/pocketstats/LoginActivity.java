@@ -1,7 +1,6 @@
 package com.shane.pocketstats;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,9 +27,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     //Firebase - AuthState listener checks the status
     private FirebaseAuth.AuthStateListener mAuthListener;
+    FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
     private EditText EmailLogin, PasswordLogin;
     private Button btn_SignIn, btn_goToRegister,btn_forgotPassword;
+    private Boolean valid = true;
 
 
     @Override
@@ -43,11 +44,11 @@ public class LoginActivity extends AppCompatActivity {
         btn_SignIn = (Button) findViewById(R.id.btn_SignIn);
         btn_goToRegister = (Button) findViewById(R.id.btn_goToRegister);
         btn_forgotPassword = (Button) findViewById(R.id.btn_forgotPassword);
+        
 
         //Initialize FireStore
         fStore = FirebaseFirestore.getInstance();
-
-
+        mAuth = FirebaseAuth.getInstance();
         //Listener will be listening for any changes
         startUpFirebaseAuth();
 
@@ -59,9 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_SignIn = (Button) findViewById(R.id.btn_SignIn);
         btn_SignIn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (!isEmpty(EmailLogin.getText().toString())
@@ -69,10 +68,15 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d(TAG, "onclick: Trying to Authenticate. ");
 
                     //checking that both the email and password fields are both not empty. Unable to proceed if they are
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(EmailLogin.getText().toString(),PasswordLogin.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.getInstance().signInWithEmailAndPassword(EmailLogin.getText().toString(),PasswordLogin.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                       
+                        public void onSuccess(AuthResult authResult) {
+                            Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                            checkUserType(authResult.getUser().getUid());
+
+                            //Intent intent = new Intent(LoginActivity.this, Coach_Home.class);
+                            //startActivity(intent);
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -110,6 +114,42 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private void checkUserType(String uid) {
+        DocumentReference docR = fStore.collection("User").document(uid);
+
+        //get the data from the document
+        docR.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Log.d(TAG, "Success" + documentSnapshot.getData());
+
+                //check is user Coach or player
+                if(documentSnapshot.getString("isCoach")!= null){
+                    startActivity(new Intent(getApplicationContext(),Coach_Home.class));
+
+                }
+                if(documentSnapshot.getString("isPlayer")!= null){
+                    startActivity(new Intent(getApplicationContext(),Player_Home.class));
+
+                }
+
+            }
+        });
+
+        }
+
+
+    private Boolean checkField(EditText textF) {
+
+        if(textF.getText().toString().isEmpty()){
+            textF.setError("Error");
+            valid = false;
+        }else {
+            valid = true;
+        }
+        return valid;
+    }
+
    /* private void checkUser(String uid) {
         DocumentReference df = fStore.collection("Users").document(uid);
 
@@ -141,8 +181,6 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     Toast.makeText(LoginActivity.this, "Authenticated with: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, Coach_Home.class);
-                    startActivity(intent);
 
                 } else {
                     // User is signed out
