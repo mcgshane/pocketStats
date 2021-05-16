@@ -13,6 +13,8 @@ import androidx.room.RoomDatabase;
 
     private static Room_DB INSTANCE;
 
+    // initialise room db and get instance
+
     public static Room_DB getDbInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), Room_DB.class, "Fixtures")

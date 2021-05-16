@@ -7,6 +7,7 @@ import java.util.List;
 
 @Dao
 public interface Stats_DAO {
+    //CRUD querys for database
 
     @Query("SELECT * FROM stats")
     List<DB_Entity_Stats> getAll();
@@ -14,7 +15,7 @@ public interface Stats_DAO {
     @Query("SELECT * FROM stats")
     List<DB_Entity_Stats> getLast();
 
-    @Query("SELECT * FROM stats WHERE name = :playerName")
+    @Query("SELECT * FROM stats WHERE LOWER(name) = :playerName")
     List<DB_Entity_Stats> getPlayer(String playerName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

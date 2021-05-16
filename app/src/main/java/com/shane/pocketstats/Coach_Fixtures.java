@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,35 +34,29 @@ public class Coach_Fixtures extends AppCompatActivity {
         et_Venue = (EditText) findViewById(R.id.et_Venue);
         Save = (Button) findViewById(R.id.Save);
 
- //       getAllFixtures();
+        // Intizaing the database and retreive data
         Room_DB fixDB = Room_DB.getDbInstance(this.getApplicationContext());
         List<DB_Entity_Fixtures> fixtures = fixDB.fixtures_DAO().getAll();
 
+        //Intizing the recyler view and link to layout view page
         rv_Fixtures = findViewById(R.id.recycler_view);
         FixturesListAdapter adapter = new FixturesListAdapter(this, fixtures);
 
         rv_Fixtures.setLayoutManager(new LinearLayoutManager(this));
         rv_Fixtures.setAdapter(adapter);
 
-
+    // saving  the fixtures
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveFixtures(et_Date.getText().toString(),et_Venue.getText().toString(),et_Time.getText().toString(),et_Opponent.getText().toString());
 
                 }
-              //  setRecyclerView();
 
-              //  getAllFixtures();
         });
 
-
-
-
-        /* Room_DB.AppDatabase fixDB = Room.databaseBuilder(getApplicationContext(),
-                Room_DB.AppDatabase.class, "Fixtures").build();*/
     }
-
+ // saving fixtures into the table
     public void saveFixtures(String et_Date, String et_Venue, String et_Opponent, String et_Time){
 
       Room_DB fixDB = Room_DB.getDbInstance(this.getApplicationContext());
@@ -73,9 +68,8 @@ public class Coach_Fixtures extends AppCompatActivity {
       entry.setOpponent(et_Opponent);
       fixDB.fixtures_DAO().insertEntry(entry);
 
-
-
-      //finish();
+        Toast toast = Toast.makeText(getApplicationContext(),"Fixture Saved" ,Toast.LENGTH_SHORT);
+        toast.show();
 
     }
 
@@ -84,29 +78,7 @@ public class Coach_Fixtures extends AppCompatActivity {
     }
 
     private void getAllFixtures() {
-/*
-        Room_DB fixDB = Room_DB.getDbInstance(this.getApplicationContext());
-        List<DB_Entity_Fixtures> fixtures = fixDB.fixtures_DAO().getAll();
 
-        rv_Fixtures = findViewById(R.id.recycler_view);
-        rv_Fixtures.setLayoutManager(new LinearLayoutManager(this));
-        rv_Fixtures.setAdapter(new FixturesListAdapter(this, fixtures));
-*/
-
-
-
-
-        //    List<Fixtures> fixturesList = fixDB.fixtures_DAO().getAll();
-     //   FixturesListAdapter.setFixtureSlot (fixturesList);
-
-        /*
-        ############# NOT SURE DOES THIS GO HERE OR ABOVE I HAVE THE ADAPTER BIT ABOVE BUT HOW DO I BRING
-        IN MY ADAPTER CLASS
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new FixturesListAdapter(fixtures);
-        recyclerView.setAdapter(adapter);
-        */
     }
 
 

@@ -73,6 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Map<String, Object> userInfo = new HashMap<>();
                             userInfo.put("name", name.getText().toString());
                             userInfo.put("email", email.getText().toString());
+                            userInfo.put("uId", fbUser.getUid());
+
                             // if userCheck is one normal user is signed in
                             userInfo.put("isPlayer", "1");
 

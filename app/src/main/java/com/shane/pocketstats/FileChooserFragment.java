@@ -31,6 +31,8 @@ public class FileChooserFragment extends Fragment {
 
     private static final String LOG_TAG = "AndroidExample";
 
+
+
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 
@@ -50,6 +52,15 @@ public class FileChooserFragment extends Fragment {
         return rootView;
     }
 
+
+    /**
+     *
+     *REFERENCE:
+     * Additional Assistance form the following link
+     * https://o7planning.org/12725/create-a-simple-file-chooser-in-android
+     *
+     *
+     */
     private void askPermissionAndBrowseFile()  {
         // With Android Level >= 23, you have to ask the user
         // for permission to access External Storage.

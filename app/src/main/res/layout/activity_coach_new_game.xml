@@ -12,8 +12,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="10dp"
+        android:background="#03A9F4"
         android:text="SarahM"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Starting5" />
 
@@ -23,6 +23,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="4dp"
+        android:background="#03A9F4"
         android:text="EdelT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Player1" />
@@ -33,6 +34,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="4dp"
+        android:background="#03A9F4"
         android:text="KateM"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Player2" />
@@ -43,6 +45,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="4dp"
+        android:background="#03A9F4"
         android:text="KatieG"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Player3" />
@@ -53,7 +56,9 @@
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="4dp"
+        android:background="#03A9F4"
         android:text="LaurenG"
+        android:textColor="#040202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Player4" />
 
@@ -63,6 +68,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="28dp"
+        android:background="@color/green"
         android:text="3 PT"
         app:layout_constraintEnd_toStartOf="@+id/btn_3_pt_missed"
         app:layout_constraintTop_toBottomOf="@+id/et_FixtureName" />
@@ -73,6 +79,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
+        android:background="@color/green"
         android:text="2 PT"
         app:layout_constraintEnd_toStartOf="@+id/btn_2_pt_missed"
         app:layout_constraintTop_toBottomOf="@+id/btn_3_pt_scored" />
@@ -83,6 +90,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
+        android:background="@color/green"
         android:text="FT"
         app:layout_constraintEnd_toStartOf="@+id/btn_ft_missed"
         app:layout_constraintTop_toBottomOf="@+id/btn_2_pt_scored" />
@@ -93,6 +101,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="28dp"
+        android:background="#BA0C0C"
         android:text="3 PT"
         app:layout_constraintEnd_toStartOf="@+id/btn_off_rebound"
         app:layout_constraintTop_toBottomOf="@+id/et_FixtureName" />
@@ -103,6 +112,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
+        android:background="#03A9F4"
         android:text="OR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_FixtureName" />
@@ -111,7 +121,9 @@
         android:id="@+id/btn_def_rebound"
         android:layout_width="80dp"
         android:layout_height="0dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="40dp"
+        android:background="#03A9F4"
         android:text="DR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_off_rebound" />
@@ -120,7 +132,9 @@
         android:id="@+id/btn_2_pt_missed"
         android:layout_width="80dp"
         android:layout_height="0dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
+        android:background="#BA0C0C"
         android:text="2 PT"
         app:layout_constraintEnd_toStartOf="@+id/btn_block"
         app:layout_constraintTop_toBottomOf="@+id/btn_3_pt_missed" />
@@ -131,6 +145,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="40dp"
+        android:background="#03A9F4"
         android:text="TO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_block" />
@@ -142,6 +157,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
         android:text="FT"
+        android:background="#BA0C0C"
         app:layout_constraintEnd_toStartOf="@+id/btn_turnover"
         app:layout_constraintTop_toBottomOf="@+id/btn_2_pt_missed" />
 
@@ -151,6 +167,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="40dp"
+        android:background="#03A9F4"
         android:text="BL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_def_rebound" />
@@ -161,6 +178,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
+        android:background="#03A9F4"
         android:text="ST"
         app:layout_constraintEnd_toStartOf="@+id/btn_assist"
         app:layout_constraintTop_toBottomOf="@+id/btn_ft_scored" />
@@ -171,6 +189,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
+        android:background="#03A9F4"
         android:text="AST"
         app:layout_constraintEnd_toStartOf="@+id/btn_turnover"
         app:layout_constraintTop_toBottomOf="@+id/btn_ft_missed" />
@@ -181,7 +200,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="136dp"
+        android:background="#39039E"
         android:text="Subs"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/btn_Save"
         app:layout_constraintTop_toBottomOf="@+id/btn_steal" />
 
@@ -191,7 +212,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="40dp"
+        android:background="#39039E"
         android:text="Save"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_turnover" />
 
@@ -200,9 +223,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
+
+        android:layout_marginBottom="15dp"
+        android:gravity="bottom"
         android:text="In play stats"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_3_pt_scored"
         app:layout_constraintStart_toEndOf="@+id/btn_Player3"

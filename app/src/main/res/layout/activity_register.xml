@@ -110,14 +110,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Btn_Register" />
 
-    <CheckBox
-        android:id="@+id/coach_checkBox"
-        android:layout_width="114dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="13dp"
-        android:text="Coach"
-        app:layout_constraintBottom_toTopOf="@+id/Btn_Register"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

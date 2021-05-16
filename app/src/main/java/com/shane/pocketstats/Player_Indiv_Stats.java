@@ -16,7 +16,7 @@ public class Player_Indiv_Stats extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //
+        //read parameter sent by calling activity for player selection
         Bundle b = getIntent().getExtras();
         String player = b.getString("Player");
         setContentView(R.layout.player_indiv_stats);
@@ -32,18 +32,16 @@ public class Player_Indiv_Stats extends AppCompatActivity {
         BL = (TextView) findViewById(R.id.block);
 
 
-
+    //intialize stats DB and get stats for the player signed in
         Stats_DB statsDB = Stats_DB.getDbInstance(this.getApplicationContext());
-        List<DB_Entity_Stats> stats = statsDB.stats_DAO().getPlayer(player);
+        List<DB_Entity_Stats> stats = statsDB.stats_DAO().getPlayer(player.toLowerCase());
 
         rv_Stats = findViewById(R.id.player_rec_view);
+        //Initalize the recycler view adapter and link to main layout page
         Indiv_Stats_Adapter inDivAdapter = new Indiv_Stats_Adapter(this, stats);
 
         rv_Stats.setLayoutManager(new LinearLayoutManager(this));
         rv_Stats.setAdapter(inDivAdapter);
 
-
-        //for (DB_Entity_Stats gameStats : stats) {
-        //}
     }
 }

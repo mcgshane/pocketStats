@@ -61,18 +61,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Time" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        app:cardBackgroundColor="#00897B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Save">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/fix_Date"
+                android:layout_width="98dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Date" />
+
+            <TextView
+                android:id="@+id/fix_Venue"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Venue" />
+
+            <TextView
+                android:id="@+id/fix_Opponent"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Opponent" />
+
+            <TextView
+                android:id="@+id/fix_Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Time" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="357dp"
+        android:layout_width="match_parent"
         android:layout_height="289dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Save" />
+        app:layout_constraintTop_toBottomOf="@+id/card_view" />
 
     <Button
         android:id="@+id/btn_getall"

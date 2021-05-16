@@ -12,7 +12,7 @@ public abstract class Training_DB extends RoomDatabase  {
     public abstract Training_DAO training_DAO();
 
     private static Training_DB INSTANCE;
-
+    // initialise Training db and get instance
     public static Training_DB getDbInstanceTraining(Context context){
         if (INSTANCE == null){
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), Training_DB.class,"Training")

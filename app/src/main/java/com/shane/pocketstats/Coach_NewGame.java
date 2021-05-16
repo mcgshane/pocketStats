@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -85,7 +87,9 @@ public class Coach_NewGame extends AppCompatActivity {
         Button btn_Subs = findViewById(R.id.btn_Subs);
         Button btn_Save = findViewById(R.id.btn_Save);
         Button btn_assist = findViewById(R.id.btn_assist);
+
         TextView tvDisplay = findViewById(R.id.tvDisplay);
+        tvDisplay.setMovementMethod(new ScrollingMovementMethod());
         EditText et_FixtureName = findViewById(R.id.et_FixtureName);
 
         btn_Player1.setOnClickListener(new View.OnClickListener() {
@@ -446,13 +450,19 @@ public class Coach_NewGame extends AppCompatActivity {
 
             }
 
-
+// Creating a alert dialog builder (Pop up screen) to select the starting 5 players
             private void showTeamSelection() {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Coach_NewGame.this);
                 builder.setTitle("Select Starting 5 Players")
                         .setMultiChoiceItems(squad, null, new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                Log.d("myTag", "show");
+                                if (isChecked) {
+                                    startingPlayer[which] = true;
+                                } else{
+                                    startingPlayer[which] = false;
+                                }
 
                             }
                         })
@@ -465,10 +475,12 @@ public class Coach_NewGame extends AppCompatActivity {
                                     boolean value = startingPlayer[a];
 
                                     if (value) {
-                                        Button button = (Button) findViewById(getResources().getIdentifier("btn_Player" + i, "id", "com.shane.pocketstats"));
-                                        button.setText(startingPlayer[a].toString());
-                                    }
-                                    i++;
+                                        if (i <6) {
+                                            // this is where the button text in the game changes to the 5 players that have been selected.
+                                        Button button = (Button) findViewById(getResources().getIdentifier("btn_Player" + String.valueOf(i), "id", "com.shane.pocketstats"));
+                                        button.setText(squad[a].toString());
+                                        i++;
+                                    }}
                                     a++;
                                 }
 

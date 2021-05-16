@@ -17,8 +17,9 @@
         <activity android:name=".Player_Training" />
         <activity android:name=".Player_TeamChat" />
         <activity android:name=".Player_Fixtures" />
-        <activity android:name=".Player_MyStats" />
-        <activity android:name=".Player_Indiv_Stats" />
+        <activity android:name=".Player_MyStats"/>
+        <activity android:name=".Player_Indiv_Stats"
+            android:screenOrientation="landscape"/>
         <activity android:name=".Player_Home" />
         <activity android:name=".Coach_TeamChat" />
         <activity android:name=".Coach_All_Team_Stats" />

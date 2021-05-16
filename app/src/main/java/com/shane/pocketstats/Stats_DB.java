@@ -11,6 +11,7 @@ public abstract class Stats_DB extends RoomDatabase {
     public abstract Stats_DAO stats_DAO();
 
     private static Stats_DB INSTANCE;
+    // Initialise stats DB and get instance
 
     public static Stats_DB getDbInstance(Context context) {
         if (INSTANCE == null) {

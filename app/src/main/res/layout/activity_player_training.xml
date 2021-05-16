@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".Player_Training">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/train_rec_view"
+        android:layout_width="291dp"
+        android:layout_height="527dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginEnd="152dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Training Drills"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/train_rec_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455" />
 </androidx.constraintlayout.widget.ConstraintLayout>

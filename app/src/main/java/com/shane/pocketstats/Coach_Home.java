@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Coach_Home extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,17 @@ public class Coach_Home extends AppCompatActivity {
         Button btn_Fixtures = findViewById(R.id.btn_PlayerFixtures);
         Button btn_Chat = findViewById(R.id.btn_PlayerChat);
         Button btn_Upload_Stats = findViewById(R.id.btn_Upload_Stats);
+        Button btn_Logout = findViewById(R.id.btn_LogOut);
+
+        btn_Logout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                FirebaseAuth.getInstance().signOut();
+
+                Intent intent = new Intent(Coach_Home.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_NewGame.setOnClickListener(new View.OnClickListener(){
             @Override

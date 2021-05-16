@@ -17,6 +17,7 @@ public class Coach_All_Team_Stats extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_all_team_stats);
 
+        // Declare team buttons for Stats selection
         SarahM = (CardView) findViewById(R.id.SarahM_Card);
         EdelT = (CardView) findViewById(R.id.EdelT_Card);
         CarolynB = (CardView) findViewById(R.id.CarolynB_Card);
@@ -25,6 +26,7 @@ public class Coach_All_Team_Stats extends AppCompatActivity implements View.OnCl
         KatieG = (CardView) findViewById(R.id.KatieG_Card);
         LaurenG = (CardView) findViewById(R.id.LaurenG_Card);
 
+        // Setting the Listeners for each button
         SarahM.setOnClickListener(this);
         EdelT.setOnClickListener(this);
         CarolynB.setOnClickListener(this);
@@ -37,7 +39,7 @@ public class Coach_All_Team_Stats extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         Intent i;
-
+    // Setting up the card view On CLicks with player parameter
         switch (v.getId()){
             case R.id.SarahM_Card:
                 i = new Intent(this, Player_Indiv_Stats.class);

@@ -12,13 +12,6 @@ import androidx.room.Room;
     @Entity(tableName = "Fixtures")
     public class DB_Entity_Fixtures{
 
- /*   public DB_Entity_Fixtures(String date, String venue) {
-        this.date = date;
-       //this.opponent = opponent;
-        this.venue = venue;
-        //this.time = time;
-    }*/
-
     @PrimaryKey
     @NonNull
      private String date;

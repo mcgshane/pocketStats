@@ -53,20 +53,22 @@ public class Indiv_Stats_Adapter extends RecyclerView.Adapter<Indiv_Stats_Adapte
         int OffRebound = entry.getOffrebound();
         int DefRebound = entry.getDefrebound();
         int totRebound = entry.getOffrebound() + entry.getDefrebound();
+        int totPoints = entry.getPoints();
 
         viewHolder.Fgoals.setText(String.valueOf(Fgoalsmade) + "/" + String.valueOf(Fgoalsattempted));
         viewHolder.ThreePts.setText(entry.getThreeptmade() + "/" + entry.getThreeptattempted() );
         viewHolder.TwoPts.setText(entry.getTwoptmade() + "/" + entry.getTwoptattempted());
         viewHolder.Fts.setText(entry.getFtmade() + "/" + entry.getFtattempted());
 
-        viewHolder.Steals.setText(entry.getSteals());
-        viewHolder.Block.setText(entry.getBlocks());
-        viewHolder.Turnover.setText(entry.getTurnovers());
-        viewHolder.Assist.setText(entry.getAssist());
+        viewHolder.Steals.setText(String.valueOf(entry.getSteals()));
+        viewHolder.Block.setText(String.valueOf(entry.getBlocks()));
+        viewHolder.Turnover.setText(String.valueOf(entry.getTurnovers()));
+        viewHolder.Assist.setText(String.valueOf(entry.getAssist()));
 
-        viewHolder.Rebounds.setText(entry.getOffrebound() + "/" + entry.getDefrebound());
-        viewHolder.OffRebounds.setText(entry.getOffrebound());
-        viewHolder.DefRebounds.setText(entry.getDefrebound());
+        viewHolder.Rebounds.setText(String.valueOf(entry.getOffrebound())+ "/" + String.valueOf(entry.getDefrebound()));
+        viewHolder.OffRebounds.setText(String.valueOf(entry.getOffrebound()));
+        viewHolder.DefRebounds.setText(String.valueOf(entry.getDefrebound()));
+        viewHolder.TotPoints.setText(String.valueOf(entry.getPoints())  );
 
     }
 
@@ -77,7 +79,7 @@ public class Indiv_Stats_Adapter extends RecyclerView.Adapter<Indiv_Stats_Adapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView Fgoals, ThreePts, TwoPts, Fts, Steals, Block, Turnover, Assist, Rebounds , OffRebounds, DefRebounds;
+        TextView Fgoals, ThreePts, TwoPts, Fts, Steals, Block, Turnover, Assist, Rebounds , OffRebounds, DefRebounds, TotPoints;
         CardView card_view;
 
         public ViewHolder(@NonNull View itemView) {
@@ -102,7 +104,8 @@ public class Indiv_Stats_Adapter extends RecyclerView.Adapter<Indiv_Stats_Adapte
             Rebounds = itemView.findViewById(R.id.totR);
             OffRebounds = itemView.findViewById(R.id.offR);
             DefRebounds = itemView.findViewById(R.id.defR);
-
+            TotPoints = itemView.findViewById(R.id.points);
+            
             card_view = itemView.findViewById(R.id.card_view);
 
         }

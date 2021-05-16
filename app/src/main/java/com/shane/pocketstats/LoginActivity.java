@@ -63,13 +63,25 @@ public class LoginActivity extends AppCompatActivity {
         btn_SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String u, p;
+                u = EmailLogin.getText().toString();
+                p = PasswordLogin.getText().toString();
+            //Following code used in testing for quick access to login profiles.
+               /* if (u.equals("p") ) {
+                    u = "edelt@gmail.com";
+                    p = "2021basket";
+                }
+                if (p.equals("c")) {
+                    u="shane@hotmail.com";
+                    p = "Password124";
+                }*/
+
                 if (!isEmpty(EmailLogin.getText().toString())
                         && !isEmpty(PasswordLogin.getText().toString())) {
                     Log.d(TAG, "onclick: Trying to Authenticate. ");
 
                     //checking that both the email and password fields are both not empty. Unable to proceed if they are
-                    mAuth.getInstance().signInWithEmailAndPassword(EmailLogin.getText().toString(),PasswordLogin.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-
+                    mAuth.getInstance().signInWithEmailAndPassword(u,p).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                        
                         public void onSuccess(AuthResult authResult) {
                             Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
@@ -150,18 +162,6 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
-   /* private void checkUser(String uid) {
-        DocumentReference df = fStore.collection("Users").document(uid);
-
-        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Log.d("TAG", "OnSuccess: " + documentSnapshot.getData());
-
-                if(documentSnapshot.getString(""))
-            }
-        });
-    }*/
 
     //checking there is text in the string is so it returns true
     private boolean isEmpty(String string){

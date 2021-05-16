@@ -14,50 +14,57 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp">
+            android:layout_width="323dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp">
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Player Stats"
+                android:textAlignment="viewStart"
+                android:textSize="24sp" />
         </RelativeLayout>
 
         <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnOrderPreserved="false"
+            android:layout_width="396dp"
+            android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
-            android:rowCount="3"
-            android:columnCount="2">
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/SarahM_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
+                        android:layout_height="80dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sarah M"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -67,18 +74,18 @@
                 android:id="@+id/EdelT_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -89,8 +96,7 @@
                         android:layout_height="wrap_content"
                         android:text="Edel T"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -100,18 +106,18 @@
                 android:id="@+id/CarolynB_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -122,8 +128,7 @@
                         android:layout_height="wrap_content"
                         android:text="Carolyn B"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -133,18 +138,18 @@
                 android:id="@+id/KateM_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -155,8 +160,7 @@
                         android:layout_height="wrap_content"
                         android:text="Kate M"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -166,18 +170,18 @@
                 android:id="@+id/NiamhK_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -188,8 +192,7 @@
                         android:layout_height="wrap_content"
                         android:text="Niamh K"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -199,18 +202,18 @@
                 android:id="@+id/KatieG_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -221,8 +224,7 @@
                         android:layout_height="wrap_content"
                         android:text="Katie G"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -232,18 +234,18 @@
                 android:id="@+id/LaurenG_Card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 app:cardCornerRadius="10dp"
-                android:layout_margin="10dp" >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -254,14 +256,11 @@
                         android:layout_height="wrap_content"
                         android:text="Lauren G"
                         android:textColor="#6f6f6f"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-
 
 
         </GridLayout>

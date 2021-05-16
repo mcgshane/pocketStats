@@ -40,9 +40,6 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
                 Intent intent = new Intent(Coach_TeamStatsUpload.this, Coach_Home.class);
                 startActivity(intent);
 
-                //Update the screen with list of Data that was uploaded
-                // statsDB.stats_DAO().getAll();
-
             }
         });
 
@@ -52,46 +49,44 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
 
     private List<DB_Entity_Stats> processImportFile() {
 
+        //Initialise file selection Fragment . Fragment on screen has tb and button Upload button
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         this.fragment = (FileChooserFragment) fragmentManager.findFragmentById(R.id.fragment_fileChooser);
+        // gets the path of file selected file and uts it into text box
         String path = this.fragment.getPath();
         if (path.startsWith("/document/raw:")) {
             path = path.replaceFirst("/document/raw:", "");
         }
+        //creating file name of the csv selected
         String filename=path.substring(path.lastIndexOf("/")+1);
-
-//        File file = getBaseContext().getFileStreamPath(path);
-//        if (file.exists()) {
-//            Toast.makeText(this, "Path: " + path, Toast.LENGTH_LONG).show();
-//        }
-
-        FileInputStream is; //  = Files.newInputStream(path); // getResources().openRawResource( R.raw.test);
+        // Opens the file into memory
+        FileInputStream is;
         try {
             is = new FileInputStream(path);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        //Stores file into buffer reader for processing
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
         );
         String line = "";
+        //Initalisng player Array of type Db Entity Stats
         List<DB_Entity_Stats> players = new ArrayList<>();
-
+    // reading the reader line by line
         try {
             reader.readLine();
             String strGame, strName, strMinsPLayed, strFGs, strThrees, strTwos, strFreeTs;
-//            String stroffrebound, strdefrebound, strtotrebound, strturnover, strsteal, strblock, strpts ;
+
             int iFGMade, iFGAttempted, ithreeptmade, ithreeptattempted, itwoptmade, itwoptattempted,iftptmade, iftptattempted;
             int ioffrebound, idefrebound, itotrebound, iassist, iturnover, isteal, iblock, ipts ;
+            //loops through fields on the line storing data in local variables
             while ((line = reader.readLine()) != null) {
-                //              Log.d("MyActivity", "Line: " + line);
 
                 strGame = filename.substring(0, filename.length() - 4) ;
                 String[] fields = line.split(",");
 
                 strName=fields[0];
-//                strMinsPLayed=fields[1];
-//                iMinsPLayed = Integer.valueOf(strMinsPLayed.toString());
 
                 strFGs=fields[2];
                 String[] fgs = strFGs.split("/");
@@ -126,19 +121,18 @@ public class Coach_TeamStatsUpload extends AppCompatActivity {
 
 
 
-
+            // Creates a new DB Entity record
                 DB_Entity_Stats stat=new DB_Entity_Stats(strGame, strName, iFGMade, iFGAttempted, ithreeptmade, ithreeptattempted, itwoptmade, itwoptattempted,
                         iftptmade, iftptattempted, ioffrebound, idefrebound, itotrebound, iassist, iturnover, isteal, iblock, ipts);
 
-                statsDB.stats_DAO().insert(stat);
+                // adds db Entity record to player Array
                 players.add(stat);
 
-                //               Log.d(TAG, "Just created: " + mGender+mMeaning+mName+mOrigin);
 
             }
 
         } catch (IOException e) {
-            //           Log.wtf("MyActivity", "Error reading data file on line" + line, e);
+
             e.printStackTrace();
         }
         return players;
